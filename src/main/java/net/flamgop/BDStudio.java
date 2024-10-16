@@ -10,7 +10,7 @@ public class BDStudio extends BDStudioGenericData {
 
     public BDStudio() {}
 
-    public BDStudio(String name, String nbt, ArrayList<Integer> transforms, ArrayList<Child> children, boolean isCollection) {
+    public BDStudio(String name, String nbt, ArrayList<Double> transforms, ArrayList<Child> children, boolean isCollection) {
         this.name = name;
         this.nbt = nbt;
         this.transforms = transforms;
