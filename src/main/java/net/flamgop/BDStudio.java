@@ -3,10 +3,8 @@ package net.flamgop;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class BDStudio {
-    public String name;
-    public String nbt;
-    public ArrayList<Integer> transforms;
+public class BDStudio extends BDStudioGenericData {
+
     public ArrayList<Child> children;
     public boolean isCollection;
 
@@ -20,7 +18,7 @@ public class BDStudio {
         this.isCollection = isCollection;
     }
 
-    public static class Options {
+    public static class TextOptions {
         public String color;
         public double alpha;
         public String backgroundColor;
@@ -32,9 +30,9 @@ public class BDStudio {
         public int lineLength;
         public Align align;
 
-        public Options() {}
+        public TextOptions() {}
 
-        public Options(String color, double alpha, String backgroundColor, double backgroundAlpha, boolean bold, boolean italic,
+        public TextOptions(String color, double alpha, String backgroundColor, double backgroundAlpha, boolean bold, boolean italic,
                        boolean underline, boolean strikeThrough, int lineLength, Align align) {
             this.color = color;
             this.alpha = alpha;
@@ -67,7 +65,7 @@ public class BDStudio {
         @Override
         public boolean equals(Object obj) {
             if (this == obj) return true;
-            if (!(obj instanceof Options options)) return false;
+            if (!(obj instanceof TextOptions options)) return false;
             return Double.compare(options.alpha, alpha) == 0 &&
                 Double.compare(options.backgroundAlpha, backgroundAlpha) == 0 &&
                 bold == options.bold &&
@@ -92,19 +90,16 @@ public class BDStudio {
         RIGHT
     }
 
-    public static class Child {
-        public String name;
-        public String nbt;
-        public ArrayList<Double> transforms;
+    public static class Child extends BDStudioGenericData {
         public boolean isItemDisplay;
         public boolean isTextDisplay;
         public boolean isBlockDisplay;
-        public Options options;
+        public TextOptions options;
 
         public Child() {}
 
         public Child(String name, String nbt, ArrayList<Double> transforms, boolean isItemDisplay,
-                     boolean isTextDisplay, boolean isBlockDisplay, Options options) {
+                     boolean isTextDisplay, boolean isBlockDisplay, TextOptions options) {
             this.name = name;
             this.nbt = nbt;
             this.transforms = transforms;
