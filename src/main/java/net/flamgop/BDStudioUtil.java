@@ -14,8 +14,6 @@ public class BDStudioUtil {
         String decompressed = new String(decompress(decoded));
         decompressed = decompressed.substring(1, decompressed.length()-1); // hacky way of removing the enclosing array which is a byproduct of javascript serialization
 
-        System.out.println(decompressed);
-
         Gson gson = new Gson();
         return gson.fromJson(decompressed, BDStudio.class);
     }
